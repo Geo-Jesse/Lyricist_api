@@ -10,13 +10,13 @@ var lyricsArr = [
     band: "Beach Boys",
     songTitle: "God Only Knows",
     lyrics: "I may not always love you...",
-    albumArt: ""
+    albumArt: "https://upload.wikimedia.org/wikipedia/en/b/bb/PetSoundsCover.jpg"
   },
   {
     band: "Rob Crow",
     songTitle: "Overtime",
     lyrics: "Oh yeah...",
-    albumArt: ""
+    albumArt: "http://cdn2.pitchfork.com/albums/1697/71b73427.jpg"
   }
 ].forEach(function (lyricObject) {
   var lyric = new Lyrics(lyricObject)
