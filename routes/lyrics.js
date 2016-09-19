@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var Lyrics = require('../models/Lyrics')
+var Lyric = require('../models/lyric');
 const _ = require('lodash');
 
 router.use(function (req, res, next) {
   req.body = _.pick(req.body, ['band', 'songTitle', 'lyrics', 'albumArt'])
   next()
-})
+});
 
 //GET
 router.get('/', function(req, res, next) {
-  Lyrics.find({}, function(err, lyrics) {
+  Lyric.find({}, function(err, lyrics) {
     if (err) {
+      console.log(err);
       res.status(500).send()
     } else {
       res.json(lyrics)
