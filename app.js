@@ -1,3 +1,6 @@
+//require dotenv
+require('dotenv').config({silent: true});
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,8 +8,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//ADDED MONGOOSE
+const mongoose = require('mongoose');
+
+//ADDED THE DATABASE CONNECTION
+mongoose.connect(process.env.DB_CONNECTION)
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var lyrics = require('./routes/lyrics');
 
 var app = express();
 
