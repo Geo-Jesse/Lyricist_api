@@ -8,10 +8,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//ADDED MONGOOSE
-const mongoose = require('mongoose');
+const cors = require('cors');
 
-//ADDED THE DATABASE CONNECTION
+const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONNECTION)
 
 
@@ -32,6 +31,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors())
 
 app.use('/', routes);
 app.use('/users', users);
