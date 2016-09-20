@@ -3,26 +3,56 @@ require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONNECTION);
 
-var Lyrics = require('./models/lyrics');
+var Lyrics = require('./models/lyric');
 
 var lyricsArr = [
   {
     band: "Beach Boys",
     songTitle: "God Only Knows",
-    lyrics: "I may not always love you, But long as there are stars above you, You never need to doubt it, I'll make you so sure about it, God only knows what I'd be without you, If you should ever leave me, Though life would still go on, believe me, The world could show nothing to me, So what good would livin' do me, God only knows what I'd be without you, God only knows what I'd be without you, If you should ever leave me, Though life would still go on, believe me, The world could show nothing to me, So what good would livin' do me, God only knows what I'd be without you",
+    lyrics: "I may not always love you \n But long as there are stars above you \n You never need to doubt it \n I'll make you so sure about it \n \n God only knows what I'd be without you \n \n If you should ever leave me \n Though life would still go on, believe me \n The world could show nothing to me \n So what good would livin' do me \n \n God only knows what I'd be without you \n God only knows what I'd be without you \n \n If you should ever leave me \n Though life would still go on, believe me \n The world could show nothing to me \n So what good would livin' do me \n \n God only knows what I'd be without you",
     albumArt: "https://upload.wikimedia.org/wikipedia/en/b/bb/PetSoundsCover.jpg"
   },
   {
     band: "The White Stripes",
     songTitle: "Dead Leaves And the Dirty Ground",
-    lyrics: "Dead leaves and the dirty ground when I know you're not around, shiny tops and soda pops when I hear your lips make a sound, Thirty notes in the mailbox will tell you that I'm coming home and I think I'm gonna stick around for a while so you're not alone - If you can hear a piano fall you can hear me coming down the hall, if I could just hear your pretty voice I don't think I need to see at all, Soft hair and a velvet tongue I want to give you what you give to me, and every breath that is in your lungs is a tiny little gift to me, I didn't feel so bad till the sun went down then I come home no one to wrap my arms around, Well any man with a microphone can tell you what he loves the most and you know why you love at all if you're thinking of the holy ghost",
+    lyrics: "Dead leaves and the dirty ground when I know you're not around \n Shiny tops and soda pops when I hear your lips make a sound \n \n Thirty notes in the mailbox will tell you that I'm coming home \n And I think I'm gonna stick around for a while so you're not alone \n \n If you can hear a piano fall you can hear me coming down the hall \n If I could just hear your pretty voice I don't think I need to see at all \n \n Soft hair and a velvet tongue I want to give you what you give to me \n And every breath that is in your lungs is a tiny little gift to me \n \n I didn't feel so bad till the sun went down \n Then I come home \n No one to wrap my arms around \n \n Well any man with a microphone can tell you what he loves the most \n And you know why you love at all if you're thinking of the holy ghost",
     albumArt: "http://www.backseatmafia.com/wp-content/uploads/2016/07/JBWSWBC.jpg"
   },
   {
     band: "Albatross",
     songTitle: "Bhool",
-    lyrics: "Mauka paye sachayun thiye, So chai sochma, mauka gumaye, Bhool mabata bhayecha yo kasto, Risai ris ma Jan ris oothey justo, Din aauncha bhani parkhi basey, Parkhaimai din bhooli diye, Chodi aaye aafno chahana lai, Todi diya sabai bandhan, Bhool bhayecha yo kasto, Chokho maya nabujey justo, Bhool bhayecha yo kasto na sodha malai, Aandhi yo chalna deuoo, Afulai naroka, Bho Bho teti nasatau Sakdina sumpinna ma Badhyata mero bujhi deu Bujhe ko chu timro chahana lai, Timra harek bahana Harek bhawana haru lai Bhoolai bhoolma bhool bhayo, Bhoolai bhoolma bhooley chu ma",
+    lyrics: "Mauka paye \n sachayun thiye \n So chai sochma, mauka gumaye \n \n Bhool mabata bhayecha yo kasto \n Risai ris ma Jan ris oothey justo \n \n Din aauncha bhani parkhi basey \n Parkhaimai din bhooli diye \n Chodi aaye aafno chahana lai \n Todi diya sabai bandhan \n \n Bhool bhayecha yo kasto \n Chokho maya nabujey justo \n Bhool bhayecha yo kasto \n na sodha malai \n \n Aandhi yo chalna deuoo \n Afulai naroka \n Bho Bho teti nasatau \n Sakdina sumpinna ma \n \n Badhyata mero bujhi deu \n Bujhe ko chu timro chahana lai \n Timra harek bahana \n Harek bhawana haru lai \n \n Bhoolai bhoolma bhool bhayo \n Bhoolai bhoolma bhooley chu ma",
     albumArt: "https://f4.bcbits.com/img/a2456780782_10.jpg"
+  },
+  {
+    band: "Aphex Twin",
+    songTitle: "Come to Daddy",
+    lyrics: "I want your soul, \n I will eat your soul. \n \n Come to daddy. \n \n I want your soul. \n \n Aaaaaaaaaaaaaaargh.",
+    albumArt:"http://www.lololyrics.com/img/cover/5050.jpeg"
+  },
+  {
+    band: "Edith Piaf",
+    songTitle: "La Vie en Rose",
+    lyrics: "Hold me close and hold me fast \n The magic spell you cast \n This is la vie en rose \n When you kiss me heaven sighs \n And tho I close my eyes \n I see la vie en rose \n \n When you press me to your heart \n I'm in a world apart \n A world where roses bloom \n And when you speak, angels sing from above \n Everyday words seem to turn into love songs \n Give your heart and soul to me \n And life will always be la vie en rose.",
+    albumArt:"https://i.ytimg.com/vi/kFzViYkZAz4/hqdefault.jpg"
+  },
+  {
+    band: "Ryan Adams",
+    songTitle: "Cold Roses",
+    lyrics: "Mirrors in the room go black and blue \n On a Sunday morning in Saturday shoes \n We don't choose who we love \n We don't choose \n \n In a Sunday suit, with the Saturday beat \n She don't love who she chose \n She don't need what she do \n \n Daylight comes in exposin' \n Saturday bruises and cold roses \n Cold roses \n \n Nothin' but the sunlight'll help you grow from underneath your bed \n You can't see the window \n We don't choose what we see \n We don't choose \n \n Fortunate and angry just like a child \n All that money buys you medicine but can't buy you time \n We don't choose what we love \n And she don't need what she got \n \n Daylight comes in exposin' \n Saturday bruises and cold roses \n Cold roses \n \n Cold roses \n Cold roses \n Cold roses",
+    albumArt:"https://en.wikipedia.org/wiki/Cold_Roses#/media/File:Cold_roses.jpg"
+  },
+  {
+    band: "Bob Dylan",
+    songTitle: "Knockin on Heavens Door",
+    lyrics: "Mama, take this badge off of me \n I can't use it anymore \n It's gettin' dark, too dark to see \n I feel like I'm knockin' on heaven's door \n \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door \n \n Mama, put my guns in the ground \n I can't shoot them anymore \n That long black cloud is comin' down \n I feel like I'm knockin' on heaven's door \n \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door \n Knock, knock, knockin' on heaven's door",
+    albumArt:"https://en.wikipedia.org/wiki/Knockin%27_on_Heaven%27s_Door#/media/File:Bob_Dylan_-_Knockin_on_Heavens_Door.jpg"
+  },
+  {
+    band: "Hank Williams",
+    songTitle: "Ramblin Man",
+    lyrics: "I can settle down and be doin' just fine \n Til' I hear an old train rollin' down the line \n Then I hurry straight home and pack \n And if I didn't go, I believe I'd blow my stack \n \n I love you baby, but you gotta understand \n When the Lord made me, He made a Ramblin' Man \n \n Some folks might sa-ay that I'm no good \n That I wouldn't settle down if I could \n But when that open ro-oad starts to callin' me \n There's somethin' o'er the hill that I gotta see \n \n Sometimes it's har-rd but you gotta understand \n When the Lord made me, He made a Ra-amblin' Man \n \n I love to see the towns a-passin' by \n And to ride these rails, 'neath God's blue sky \n Let me travel this land from the mountains to the sea \n 'Cause that's the life I believe, He meant for me \n \n And when I'm go-one and at my grave you stand \n Just say God called home your Ra-amblin' Man",
+    albumArt:"http://e.snmc.io/lk/f/l/527dc1c7edda98c9b99b27caff6c6d02/2544443.jpg"
   }
 ].forEach(function (lyricObject) {
   var lyric = new Lyrics(lyricObject)
