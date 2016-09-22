@@ -24,15 +24,23 @@ router.get('/', function(req, res, next) {
 
 //GET BY songTitle
 router.get('/:songTitle', function (req, res, next) {
-  Lyrics.findBySongTitle(req.params.songTitle, function (err, lyric) {
+  let songTitle = decodeURI(req.params.songTitle);
+  console.log('songTitle', songTitle);
+  Lyric.findOne({ "songTitle" : new RegExp(songTitle, "i") }, function (err, lyric) {
     if (err) {
       res.status(500).send()
     } else {
       if (lyric) {
-        res.json(lyric)
+        res.json(lyric);
       } else {
-        res.status(404).send()
+        res.json({});
       }
+      // if (lyric) {
+      //   res.json(lyric)
+      // }
+      // else {
+      //   res.status(404).send()
+      // }
     }
   })
 })
