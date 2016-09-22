@@ -20,6 +20,24 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
+
+//GET BY songTitle
+router.get('/:songTitle', function (req, res, next) {
+  Lyrics.findById(req.params.songTitle, function (err, lyric) {
+    if (err) {
+      res.status(500).send()
+    } else {
+      if (lyric) {
+        res.json(lyric)
+      } else {
+        res.status(404).send()
+      }
+    }
+  })
+})
+
+
 // //POST
 // // '/' refers to "lyrics"
 // router.post('/', function (req, res, next) {
@@ -33,20 +51,6 @@ router.get('/', function(req, res, next) {
 //   })
 // })
 
-//GET BY ID
-router.get('/:lyricId', function (req, res, next) {
-  Lyrics.findById(req.params.lyricId, function (err, lyric) {
-    if (err) {
-      res.status(500).send()
-    } else {
-      if (lyric) {
-        res.json(lyric)
-      } else {
-        res.status(404).send()
-      }
-    }
-  })
-})
 
 // //PUT
 // router.put('/:lyricId', function (req, res, next) {
