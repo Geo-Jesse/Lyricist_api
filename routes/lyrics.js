@@ -8,17 +8,17 @@ router.use(function (req, res, next) {
   next()
 });
 
-// //GET
-// router.get('/', function(req, res, next) {
-//   Lyric.find({}, function(err, lyrics) {
-//     if (err) {
-//       console.log(err);
-//       res.status(500).send()
-//     } else {
-//       res.json(lyrics)
-//     }
-//   })
-// });
+//GET
+router.get('/', function(req, res, next) {
+  Lyric.find({}, function(err, lyrics) {
+    if (err) {
+      console.log(err);
+      res.status(500).send()
+    } else {
+      res.json(lyrics)
+    }
+  })
+});
 
 
 
