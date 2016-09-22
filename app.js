@@ -18,6 +18,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var lyrics = require('./routes/lyrics');
 
+
 var app = express();
 
 // view engine setup
@@ -37,6 +38,7 @@ app.use(cors())
 app.use('/', routes);
 app.use('/users', users);
 app.use('/lyrics', lyrics);
+
 
 
 // catch 404 and forward to error handler

@@ -32,6 +32,8 @@ router.get('/:songTitle', function (req, res, next) {
     } else {
       if (lyric) {
         res.json(lyric);
+
+
       } else {
         res.json({});
       }
@@ -79,15 +81,15 @@ router.get('/:songTitle', function (req, res, next) {
 
 
 
-router.delete('/:lyricId', function (req, res, next) {
-  Lyric.findById(req.params.lyricId).remove(function (err) {
-    if (err) {
-      res.status(500).send()
-    } else {
-      res.status(204).send()
-    }
-  })
-})
-
-
+// router.delete('/:lyricId', function (req, res, next) {
+//   Lyric.findById(req.params.lyricId).remove(function (err) {
+//     if (err) {
+//       res.status(500).send()
+//     } else {
+//       res.status(204).send()
+//     }
+//   })
+// })
+//
+//
 module.exports = router;
