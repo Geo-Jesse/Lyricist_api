@@ -8,23 +8,23 @@ router.use(function (req, res, next) {
   next()
 });
 
-//GET
-router.get('/', function(req, res, next) {
-  Lyric.find({}, function(err, lyrics) {
-    if (err) {
-      console.log(err);
-      res.status(500).send()
-    } else {
-      res.json(lyrics)
-    }
-  })
-});
+// //GET
+// router.get('/', function(req, res, next) {
+//   Lyric.find({}, function(err, lyrics) {
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send()
+//     } else {
+//       res.json(lyrics)
+//     }
+//   })
+// });
 
 
 
 //GET BY songTitle
 router.get('/:songTitle', function (req, res, next) {
-  Lyrics.findById(req.params.songTitle, function (err, lyric) {
+  Lyrics.findBySongTitle(req.params.songTitle, function (err, lyric) {
     if (err) {
       res.status(500).send()
     } else {
