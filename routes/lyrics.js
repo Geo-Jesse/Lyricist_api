@@ -24,12 +24,12 @@ router.get('/', function(req, res, next) {
 
 //GET BY songTitle
 router.get('/:songTitle', function (req, res, next) {
-  Lyrics.findById(req.params.songTitle, function (err, lyric) {
+  Lyric.find({'songTitle' : new RegExp (req.params.songTitle, "i")}, function (err, songTitle) {
     if (err) {
       res.status(500).send()
     } else {
-      if (lyric) {
-        res.json(lyric)
+      if (songTitle) {
+        res.json(songTitle)
       } else {
         res.status(404).send()
       }
@@ -71,15 +71,15 @@ router.get('/:songTitle', function (req, res, next) {
 
 
 
-router.delete('/:lyricId', function (req, res, next) {
-  Lyric.findById(req.params.lyricId).remove(function (err) {
-    if (err) {
-      res.status(500).send()
-    } else {
-      res.status(204).send()
-    }
-  })
-})
-
-
+// router.delete('/:lyricId', function (req, res, next) {
+//   Lyric.findById(req.params.lyricId).remove(function (err) {
+//     if (err) {
+//       res.status(500).send()
+//     } else {
+//       res.status(204).send()
+//     }
+//   })
+// })
+//
+//
 module.exports = router;
