@@ -26,14 +26,13 @@ router.get('/', function(req, res, next) {
 router.get('/:songTitle', function (req, res, next) {
   var songTitle = decodeURI(req.params.songTitle);
   console.log('songTitle', songTitle);
+
   Lyric.findOne({ "songTitle" : new RegExp(songTitle, "i") }, function (err, lyric) {
     if (err) {
       res.status(500).send()
     } else {
       if (lyric) {
         res.json(lyric);
-
-
       } else {
         res.json({});
       }
