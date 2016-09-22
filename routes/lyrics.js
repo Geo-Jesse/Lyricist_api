@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Lyric = require('../models/lyric');
-const _ = require('lodash');
+var _ = require('lodash');
 
 router.use(function (req, res, next) {
   req.body = _.pick(req.body, ['band', 'songTitle', 'lyrics', 'albumArt'])
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 
 //GET BY songTitle
 router.get('/:songTitle', function (req, res, next) {
-  let songTitle = decodeURI(req.params.songTitle);
+  var songTitle = decodeURI(req.params.songTitle);
   console.log('songTitle', songTitle);
   Lyric.findOne({ "songTitle" : new RegExp(songTitle, "i") }, function (err, lyric) {
     if (err) {

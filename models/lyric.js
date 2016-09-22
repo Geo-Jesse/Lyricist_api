@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 var lyricSchema = {
   band: String,
@@ -7,7 +7,7 @@ var lyricSchema = {
   albumArt: String,
 }
 
-const Lyric = mongoose.model('Lyric', lyricSchema);
+var Lyric = mongoose.model('Lyric', lyricSchema);
 
 
 module.exports = Lyric;
